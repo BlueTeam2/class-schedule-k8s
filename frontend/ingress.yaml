@@ -1,0 +1,78 @@
+# # apiVersion: networking.k8s.io/v1
+# # kind: Ingress
+# # metadata:
+# #   name: minimal-ingress
+# #   annotations:
+# #     nginx.ingress.kubernetes.io/rewrite-target: /
+# #     kubernetes.io/ingress.class: 
+# # spec:
+# #   # ingressClassName: nginx-example
+# #   rules:
+# #   - http:
+# #       paths:
+# #       - path: /testpath
+# #         pathType: Prefix
+# #         backend:
+# #           service:
+# #             name: frontend
+# #             port:
+# #               number: 80
+
+
+
+# # ---
+# # apiVersion: "networking.k8s.io/v1"
+# # kind: "Ingress"
+# # metadata:
+# #   name: "internal-ingress"
+# #   namespace: "default"
+# #   annotations:
+# #     kubernetes.io/ingress.class: "gce-internal"
+# # spec:
+# #   defaultBackend:
+# #     service:
+# #       name: "frontend"
+# #       port:
+# #         number: 80
+# # status:
+# #   loadBalancer: {}
+
+
+# # ---
+# # apiVersion: "networking.k8s.io/v1"
+# # kind: "Ingress"
+# # metadata:
+# #   name: "external-ingress-tests"
+# #   namespace: "default"
+# # spec:
+# #   defaultBackend:
+# #     service:
+# #       name: "frontend"
+# #       port:
+# #         number: 80
+# # status:
+# #   loadBalancer: {}
+---
+apiVersion: "networking.k8s.io/v1"
+kind: "Ingress"
+metadata:
+  name: "test-ext-ingress"
+  namespace: "default"
+spec:
+  defaultBackend:
+    service:
+      name: "frontend"
+      port:
+        number: 80
+  # rules:
+  # - http:
+  #     paths:
+  #     - path: "/api"
+  #       backend:
+  #         service:
+  #           name: "frontend"
+  #           port:
+  #             number: 80
+  #       pathType: "ImplementationSpecific"
+status:
+  loadBalancer: {}

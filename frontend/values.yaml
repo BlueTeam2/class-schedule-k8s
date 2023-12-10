@@ -6,6 +6,7 @@ replicaCount: 1
 
 image:
   repository: "blueguys/class-schedule-frontend"
+  # repository: "nginx"
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
