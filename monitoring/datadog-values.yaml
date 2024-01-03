@@ -1,5 +1,5 @@
 datadog:
-  site: us5.datadoghq.com
+  site: datadoghq.com
   apiKeyExistingSecret: datadog-secret
   apm:
     instrumentation:
